@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chris Shuler – Contact</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Chris Shuler</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 24px;
-    background-color: #ffffff;
+  body { font-family: Arial, sans-serif; text-align: center; padding: 24px; background: #fff; }
+  h1 { font-size: 22px; margin: 0 0 12px; }
+  .card { max-width: 520px; margin: 0 auto; padding: 18px; border: 1px solid #ddd; border-radius: 12px; }
+  .email { font-size: 18px; word-break: break-word; margin: 14px 0; }
+  .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 12px 0 4px; }
+  a.btn, button.btn {
+    appearance: none; border: 0; border-radius: 10px; padding: 12px 16px;
+    background: #0b5fff; color: #fff; text-decoration: none; font-size: 16px;
   }
-  h1 {
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-  img {
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-    margin: 20px 0;
-  }
-  .email {
-    font-size: 18px;
-    word-break: break-word;
-    margin-top: 10px;
-  }
-  .note {
-    font-size: 14px;
-    color: #555;
-    margin-top: 10px;
-  }
+  button.btn { cursor: pointer; }
+  .secondary { background: #444; }
+  .note { font-size: 14px; color: #555; margin-top: 10px; }
+  details { margin-top: 14px; }
+  img { max-width: 280px; width: 100%; height: auto; margin-top: 10px; }
 </style>
-
 </head>
+
 <body>
+  <h1>Contact Chris Shuler</h1>
 
-<h1>Contact Chris Shuler</h1>
+  <div class="card">
+    <div class="email" id="emailText">cshuler@hawaii.edu</div>
 
-<img src="qr-code.png" alt="QR code for contact information">
+    <div class="buttons">
+      <a class="btn" href="mailto:cshuler@hawaii.edu">Email Chris</a>
+      <button class="btn secondary" type="button" onclick="copyEmail()">Copy email</button>
+    </div>
 
-<div class="email">
-  cshuler@hawaii.edu
-</div>
+    <div class="note">
+      If your phone does not open an email app, copy the address and paste it into your email client.
+    </div>
 
-<div class="note">
-  If scanning does not open email, copy the address above.
-</div>
+    <details>
+      <summary>Show QR code (for scanning from another device)</summary>
+      <img src="qr-code.png" alt="QR code for contact info" />
+    </details>
+  </div>
 
+<script>
+  function copyEmail() {
+    const email = document.getElementById("emailText").textContent.trim();
+    navigator.clipboard.writeText(email);
+    alert("Copied: " + email);
+  }
+</script>
 </body>
 </html>
